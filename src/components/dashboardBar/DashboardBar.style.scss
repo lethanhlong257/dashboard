@@ -1,0 +1,26 @@
+@include b("dashboard-bar") {
+  background-color: $primary-color !important;
+
+  @include e("brand") {
+    color: $white !important;
+    font-weight: bold;
+  }
+
+  @include m("black-text") {
+    color: $black !important;
+  }
+
+  @include e("text") {
+    a {
+      color: $white;
+      padding-left: 3px;
+    }
+  }
+
+  @include e("icon") {
+    color: $white !important;
+    padding-bottom: 4px;
+    font-size: 1rem;
+  }
+
+}
