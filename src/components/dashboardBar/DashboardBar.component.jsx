@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavDropdown, } from 'react-bootstrap';
+import { Navbar, NavDropdown, Breadcrumb} from 'react-bootstrap';
 
 export default class DashboardBar extends Component {
   render() {
@@ -24,6 +24,14 @@ export default class DashboardBar extends Component {
             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
           </NavDropdown>
         </Navbar>
+
+        <Breadcrumb>
+          <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
+            Library
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>Data</Breadcrumb.Item>
+        </Breadcrumb>
       </div>
     )
   }

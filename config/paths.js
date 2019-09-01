@@ -83,7 +83,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
-  styles: resolveApp('src/assets/styles/**/*.scss')
+  styles: resolveApp('src/assets/scss/*.scss')
 };
 
 
