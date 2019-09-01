@@ -435,7 +435,7 @@ module.exports = function (webpackEnv) {
               ), {
                 loader: 'sass-resources-loader',
                 options: {
-                  resources: [paths.styles]
+                  resources: require(path.join(process.cwd(), "src/assets/scss/util.js"))
                 }
               }],
               // Don't consider CSS imports dead code even if the
