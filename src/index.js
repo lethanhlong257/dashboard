@@ -9,9 +9,7 @@ import { AppReducer } from "./reducers"
 import thunk from "redux-thunk"
 import { BrowserRouter } from "react-router-dom"
 
-const initialState = {
-  login: false
-}
+const initialState = {}
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

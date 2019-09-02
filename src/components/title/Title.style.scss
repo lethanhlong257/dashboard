@@ -1,0 +1,14 @@
+@include b ("title") {
+
+  @include e("content") {
+    margin: 10px 20px;
+    font-weight: bold;
+  }
+
+  @include e('bar') {
+    background: $primary-color;
+    height: 2px;
+    margin-bottom: 3px;
+    margin-top: 0px;
+  }
+}
