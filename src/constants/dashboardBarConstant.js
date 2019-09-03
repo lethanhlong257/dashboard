@@ -1,0 +1,2 @@
+export const HANDLE_EDIT_MODE = 'HANDLE_EDIT_MODE';
+export const HANDLE_VIEW_MODE = 'HANDLE_VIEW_MODE';

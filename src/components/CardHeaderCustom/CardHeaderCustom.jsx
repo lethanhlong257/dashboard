@@ -21,7 +21,9 @@ export default class CardHeaderCustom extends Component {
         <Navbar.Brand className="mr-auto boardcard__brand">{title ? title : 'Title'}</Navbar.Brand>
         <div className="boardcard__icon-group">
           {
-            !isEditMode ? <i className="fas fa-expand-arrows-alt"></i> : headerCardIcons.map((headerCardIcon, key) => (
+            !isEditMode ? 
+            <i className="fas fa-expand-arrows-alt boardcard__icon"></i> : 
+            headerCardIcons.map((headerCardIcon, key) => (
               <i className={headerCardIcon + ' boardcard__icon'} key={key}></i>
             ))
           }

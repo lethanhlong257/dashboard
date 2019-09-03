@@ -3,12 +3,33 @@
   @include e("content") {
     margin: 10px 20px;
     font-weight: bold;
+    font-size: 20px;
+    color: $primary-color;
   }
 
   @include e('bar') {
     background: $primary-color;
     height: 2px;
-    margin-bottom: 3px;
+    margin-bottom: 20px;
     margin-top: 0px;
+  }
+
+  
+  @include e('icon-group') {
+    float: right;
+    line-height: 40px;
+    margin-right: 10px;
+    font-size: 17px;
+    color: $gray-color;
+  }
+
+  @include e('icon') {
+    margin-right: 10px;
+  }
+
+  &__icon:hover {
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.4s;
   }
 }

@@ -17,18 +17,17 @@ export class TextWidget extends Component {
     super(props)
   
     this.state = {
-       isEditMode: true,
        headerCardIcons: ['fas fa-cog', 'fas fa-expand-arrows-alt', 'far fa-trash-alt'],
        content:'With supporting text below as a natural lead-in to additional content.'
     }
   }
 
   render() {
-    let isEditMode = this.state.isEditMode;
+    let isEditMode = this.props.isEditMode;
     let headerCardIcons = this.state.headerCardIcons;
     let content = this.state.content;
     return (
-      <Card className='text-widget'>
+      <Card className='text-widget widget'>
         <CardHeaderCustom 
           title="Text Widget"
           isEditMode={isEditMode}
@@ -47,7 +46,7 @@ export class TextWidget extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+  isEditMode: state.dashboardBarReducer.isEditMode
 })
 
 const mapDispatchToProps = {

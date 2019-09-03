@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import DashboardBar from 'components/dashboardBar/DashboardBar.component'
-import Tilte from 'components/title/Tilte.jsx'
-import { Container } from 'react-bootstrap'
+import Title from 'components/title/Title.jsx'
+import { Container, Row, Col } from 'react-bootstrap'
+import TextWidget from 'components/TextWidget/TextWidget'
 
 
 class Dashboard extends Component {
@@ -12,9 +13,17 @@ class Dashboard extends Component {
         <header className="header">
           <DashboardBar />
           <Container>
-            <Tilte />
+            <Title />
           </Container>
         </header>
+
+        <Container>
+          <Row>
+            <Col><TextWidget /></Col>
+            <Col>2 of 3</Col>
+            <Col>3 of 3</Col>
+          </Row>
+        </Container>
       </div>
     );
   }
