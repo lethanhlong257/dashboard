@@ -6,14 +6,27 @@ import './CardHeaderCustom.style.scss'
 
 export default class CardHeaderCustom extends Component {
   static propTypes = {
-    title: PropTypes.string
+    title: PropTypes.string,
+    isEditMode: PropTypes.bool,
+    headerCardIcons: PropTypes.array
   }
 
   render() {
+
+    const title = this.props.title;
+    const isEditMode = this.props.isEditMode;
+    const headerCardIcons = this.props.headerCardIcons;
     return (
       <Card.Header className="boardcard__card-header">
-        <Navbar.Brand className="mr-auto boardcard__brand">{this.props.title ? this.props.title : 'Title'}</Navbar.Brand>
-        <div className="boardcard__icon-group"><i className="fas fa-expand-arrows-alt"></i></div>
+        <Navbar.Brand className="mr-auto boardcard__brand">{title ? title : 'Title'}</Navbar.Brand>
+        <div className="boardcard__icon-group">
+          {
+            !isEditMode ? <i className="fas fa-expand-arrows-alt"></i> : headerCardIcons.map((headerCardIcon, key) => (
+              <i className={headerCardIcon + ' boardcard__icon'} key={key}></i>
+            ))
+          }
+          
+        </div>
       </Card.Header>
     )
   }

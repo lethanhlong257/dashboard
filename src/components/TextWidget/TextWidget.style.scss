@@ -1,0 +1,5 @@
+@include b('text-widget') {
+  @include e('textarea') {
+    width: 100%;
+  }
+}

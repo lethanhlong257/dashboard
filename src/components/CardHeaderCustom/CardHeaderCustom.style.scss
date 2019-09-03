@@ -18,4 +18,9 @@
     float: right;
     line-height: 40px;
   }
+
+  @include e('icon') {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
