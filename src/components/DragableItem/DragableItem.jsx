@@ -26,7 +26,7 @@ const DragableItem = ( {id, widgetType, moveCard, findCard }) => {
   const opacity = isDragging ? 0 : 1
 
   switch (widgetType) {
-    case CONSTANT.TEXT:
+    case CONSTANT.WIDGET_TYPE_TEXT:
       return (
         <div ref={node => drag(drop(node))} style={{opacity: opacity}}>
           <TextWidget />

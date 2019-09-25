@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {Card} from 'react-bootstrap'
 import CardHeaderCustom from 'components/CardHeaderCustom/CardHeaderCustom'
+import {CONSTANT} from '../../constants/globalConstant'
 
 import './TextWidget.style.scss'
 
@@ -32,6 +33,7 @@ export class TextWidget extends Component {
           title="Text Widget"
           isEditMode={isEditMode}
           headerCardIcons={headerCardIcons}
+          widgetType={CONSTANT.WIDGET_TYPE_TEXT}
         />
         <Card.Body>
           {

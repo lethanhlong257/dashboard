@@ -6,6 +6,8 @@ import { Container } from 'react-bootstrap'
 import { DndProvider } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import DragableContainer from '../../components/dragableContainer/DragableContainer'
+import ExpandingWidgetModal from '../../components/ExpandingWidgetModal/ExpandingWidgetModal'
+import TextWidget from '../../components/TextWidget/TextWidget'
 
 class Dashboard extends Component {
   render() {
@@ -25,6 +27,10 @@ class Dashboard extends Component {
             </DndProvider>
           </Container>
         </div>
+
+        <ExpandingWidgetModal>
+          <TextWidget />
+        </ExpandingWidgetModal>
       </div>
     );
   }
