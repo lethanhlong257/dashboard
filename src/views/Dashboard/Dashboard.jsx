@@ -2,9 +2,10 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import DashboardBar from 'components/dashboardBar/DashboardBar.component'
 import Title from 'components/title/Title.jsx'
-import { Container, Row, Col } from 'react-bootstrap'
-import TextWidget from 'components/TextWidget/TextWidget'
-
+import { Container } from 'react-bootstrap'
+import { DndProvider } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+import DragableContainer from '../../components/dragableContainer/DragableContainer'
 
 class Dashboard extends Component {
   render() {
@@ -17,13 +18,13 @@ class Dashboard extends Component {
           </Container>
         </header>
 
-        <Container>
-          <Row>
-            <Col><TextWidget /></Col>
-            <Col>2 of 3</Col>
-            <Col>3 of 3</Col>
-          </Row>
-        </Container>
+        <div className="body">
+          <Container>
+            <DndProvider backend={HTML5Backend}>
+              <DragableContainer/>
+            </DndProvider>
+          </Container>
+        </div>
       </div>
     );
   }
