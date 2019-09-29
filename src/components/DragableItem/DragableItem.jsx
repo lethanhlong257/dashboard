@@ -1,10 +1,11 @@
 import React from 'react'
 import { useDrag, useDrop } from 'react-dnd'
-import { connect } from 'react-redux'
-import {CONSTANT} from '../../constants/globalConstant'
-import TextWidget from '../TextWidget/TextWidget'
+import { CONSTANT } from '../../constants/globalConstant'
+import Widget from '../widget/Widget'
+import textContent from '../../data/textContent'
+import contacts from '../../data/contacts.json'
 
-const DragableItem = ( {id, widgetType, moveCard, findCard }) => {
+const DragableItem = ({ id, widgetType, moveCard, findCard }) => {
   const originalIndex = findCard(id).index
   const [{ isDragging }, drag] = useDrag({
     item: { type: CONSTANT.CARD, id, originalIndex },
@@ -25,30 +26,34 @@ const DragableItem = ( {id, widgetType, moveCard, findCard }) => {
 
   const opacity = isDragging ? 0 : 1
 
+  let widget
   switch (widgetType) {
+    case CONSTANT.WIDGET_TYPE_DATATABLE:
+      widget =
+        <Widget
+          data={contacts} widgetTitle='Datatable Widget' widgetType={CONSTANT.WIDGET_TYPE_DATATABLE}
+        />
+      break
     case CONSTANT.WIDGET_TYPE_TEXT:
-      return (
-        <div ref={node => drag(drop(node))} style={{opacity: opacity}}>
-          <TextWidget />
-        </div>
-      )
-  
+      widget =
+        <Widget
+          data={textContent.content} widgetTitle='Text Widget' widgetType={CONSTANT.WIDGET_TYPE_TEXT}
+        />
+      break
     default:
-      return (
-        <div ref={node => drag(drop(node))} style={{opacity: opacity}}>
-          <TextWidget />
-        </div>
-      )
+      widget =
+        <Widget
+          data={''} widgetTitle='Datatable Widget' widgetType={CONSTANT.WIDGET_TYPE_DATATABLE}
+        />
+      break
   }
 
+  return (
+    <div ref={node => drag(drop(node))} style={{ opacity: opacity }}>
+      {widget}
+    </div>
+  )
+
 }
 
-const mapStateToProps = (state) => ({
-  
-})
-
-const mapDispatchToProps = {
-  
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DragableItem)
+export default DragableItem

@@ -9,20 +9,14 @@ import DragableContainer from '../../components/dragableContainer/DragableContai
 import ExpandingWidgetModal from '../../components/ExpandingWidgetModal/ExpandingWidgetModal'
 import TextWidget from '../../components/TextWidget/TextWidget'
 import {CONSTANT} from '../../constants/globalConstant'
+import PropType from 'prop-types'
 
 class Dashboard extends Component {
+  static propType = {
+    widgetType: PropType.string.isRequired
+  }
   render() {
-    let Widget;
-
-    switch (this.props.widgetType) {
-      case CONSTANT.WIDGET_TYPE_TEXT:
-        Widget = <TextWidget />
-        break;
-      default:
-        Widget = <TextWidget />
-        break;
-    }
-
+    const widgetType = this.props.widgetType
     return (
       <div className="App">
         <header className="header">
@@ -41,7 +35,7 @@ class Dashboard extends Component {
         </div>
 
         <ExpandingWidgetModal>
-          {Widget}
+          {widgetType === CONSTANT.WIDGET_TYPE_TEXT ? <TextWidget widgetTitile='Widget Type' /> : null}
         </ExpandingWidgetModal>
       </div>
     );

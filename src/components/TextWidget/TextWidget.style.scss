@@ -1,5 +1,4 @@
 @include b('text-widget') {
-  margin-bottom: 15px;
   @include e('textarea') {
     width: 100%;
     height: 100%;

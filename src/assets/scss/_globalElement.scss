@@ -1,4 +1,4 @@
-$margin-default: 15;
+$margin-default: 15px;
 
 body {
     color: $black;
@@ -9,9 +9,20 @@ h1, h2, h3 ,h4, h5, h6 {
 }
 
 .widget {
-    height: 300px;
+    height: 350px;
     box-shadow: $stable-shadow;
     border-radius: 6px;
     border: none;
-    margin-bottom: $margin-default px;
+    margin-bottom: $margin-default;
+    .widget-body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+.bar {
+    background: $primary-color;
+    height: 2px;
+    margin-bottom: 20px;
+    margin-top: 0px;
 }

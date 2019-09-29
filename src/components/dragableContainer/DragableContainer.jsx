@@ -7,7 +7,7 @@ import DragableItem from '../DragableItem/DragableItem'
 
 let widgets = [
   {
-    id: 1, widgetType: CONSTANT.WIDGET_TYPE_TEXT
+    id: 1, widgetType: CONSTANT.WIDGET_TYPE_DATATABLE
   },
   {
     id: 2, widgetType: CONSTANT.WIDGET_TYPE_TEXT
@@ -16,7 +16,7 @@ let widgets = [
     id: 3, widgetType: CONSTANT.WIDGET_TYPE_TEXT
   },
   {
-    id: 4, widgetType: CONSTANT.TEXWIDGET_TYPE_TEXT
+    id: 4, widgetType: CONSTANT.WIDGET_TYPE_TEXT
   }
 ]
 

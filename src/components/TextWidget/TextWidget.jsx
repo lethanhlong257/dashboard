@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import {Card} from 'react-bootstrap'
 import CardHeaderCustom from 'components/CardHeaderCustom/CardHeaderCustom'
 import {CONSTANT} from '../../constants/globalConstant'
+import TextWidgetEditMode from './TextWidgetEditMode'
 
 import './TextWidget.style.scss'
 
@@ -26,7 +27,7 @@ export class TextWidget extends Component {
   render() {
     let isEditMode = this.props.isEditMode;
     let headerCardIcons = this.state.headerCardIcons;
-    let content = this.state.content;
+    let textContent = this.props.textContent;
     return (
       <Card className='text-widget widget'>
         <CardHeaderCustom 
@@ -35,11 +36,11 @@ export class TextWidget extends Component {
           headerCardIcons={headerCardIcons}
           widgetType={CONSTANT.WIDGET_TYPE_TEXT}
         />
-        <Card.Body>
+        <Card.Body className='widget-body'>
           {
             isEditMode ? 
-            <textarea className="text-widget__textarea" defaultValue={content}></textarea> :
-            <Card.Text>{content}</Card.Text>
+            <TextWidgetEditMode content={this.state.content} /> :
+            <Card.Text>{textContent}</Card.Text>
           }
         </Card.Body>
       </Card>
