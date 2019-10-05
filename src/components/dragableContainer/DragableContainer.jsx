@@ -13,7 +13,7 @@ let widgets = [
     id: 2, widgetType: CONSTANT.WIDGET_TYPE_TEXT
   },
   {
-    id: 3, widgetType: CONSTANT.WIDGET_TYPE_TEXT
+    id: 3, widgetType: CONSTANT.WIDGET_TODO_LIST
   },
   {
     id: 4, widgetType: CONSTANT.WIDGET_TYPE_TEXT

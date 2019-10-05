@@ -7,6 +7,8 @@ import { HeaderWidgetIcon } from '../../data/headerWidget'
 import { CONSTANT } from '../../constants/globalConstant'
 import DatatableBodyContent from '../DatatableWidget/DatatableBodyContent'
 import TextWidgetEditMode from '../TextWidget/TextWidgetEditMode'
+import EditModeWidget from './EditModeWidget'
+import TodoBodyWidget from './TodoBodyWidget'
 
 function Widget({ widgetTitle, widgetType, data }) {
   const isEditMode = useSelector(state => state.dashboardBarReducer.isEditMode);
@@ -14,14 +16,20 @@ function Widget({ widgetTitle, widgetType, data }) {
   switch (widgetType) {
     case CONSTANT.WIDGET_TYPE_DATATABLE:
       widget = isEditMode ?
-        <DatatableBodyContent contact={data} /> :
+        <EditModeWidget data={data} /> :
         <DatatableBodyContent contact={data} />
       break;
     case CONSTANT.WIDGET_TYPE_TEXT:
       widget =
-        isEditMode ? 
-        <TextWidgetEditMode content={data} /> :
-        <Card.Text>{data}</Card.Text>
+        isEditMode ?
+          <TextWidgetEditMode content={data} /> :
+          <Card.Text>{data}</Card.Text>
+      break;
+    case CONSTANT.WIDGET_TODO_LIST:
+      widget =
+        isEditMode ?
+          <TodoBodyWidget /> :
+          <TodoBodyWidget />
       break;
     default:
       break;

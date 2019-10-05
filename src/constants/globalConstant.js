@@ -1,10 +1,18 @@
 export const CONSTANT = {
   CARD: 'CARD',
+  ITEM_DATA_CARD: 'ITEM_DATA_CARD',
   WIDGET_TYPE_TEXT: 'Text Widget',
-  WIDGET_TYPE_DATATABLE: 'Datatable Widget'
+  WIDGET_TYPE_DATATABLE: 'Datatable Widget',
+  WIDGET_TODO_LIST: 'TODO List',
+  ADD_CONTACT_PROPERTY: 'ADD_CONTACT_PROPERTY',
+  REMOVE_CONTACT_PROPERTY: 'REMOVE_CONTACT_PROPERTY'
 }
 
 export const headerDashBoardConstant = {
   EXPAND_WIDGET: 'EXPAND_WIDGET',
   CLOSE_EXPAND_WIDGET: 'CLOSE_EXPAND_WIDGET'
+}
+
+export const WidgetConstant = {
+  
 }

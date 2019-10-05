@@ -1,0 +1,18 @@
+{
+  "contactProperty": [
+    "ID",
+    "Name",
+    "Title",
+    "Phone",
+    "Email"
+  ],
+  "usingContactProperty": [
+    "ID",
+    "Name",
+    "Title"
+  ],
+  "remainningContactProperty": [
+    "Phone",
+    "Email"
+  ]
+}
