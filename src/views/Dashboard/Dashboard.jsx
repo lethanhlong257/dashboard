@@ -21,13 +21,13 @@ class Dashboard extends Component {
       <div className="App">
         <header className="header">
           <DashboardBar />
-          <Container>
+          <Container fluid>
             <Title />
           </Container>
         </header>
 
         <div className="body">
-          <Container>
+          <Container fluid>
             <DndProvider backend={HTML5Backend}>
               <DragableContainer/>
             </DndProvider>

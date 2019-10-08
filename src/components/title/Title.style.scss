@@ -1,5 +1,7 @@
 @include b ("title") {
 
+  margin: 10px 0;
+
   @include e("content") {
     margin: 10px 20px;
     font-weight: bold;
