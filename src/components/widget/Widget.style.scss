@@ -16,6 +16,14 @@
   }
 }
 
+@include b('todo-item') {
+  @include m('done') {
+    text-decoration: line-through solid rgb(68, 68, 68);
+    font-style: italic;
+    transition: all .2s;
+  }
+}
+
 @include b("todo") {
   @include e("btn") {
     padding: 3px;
@@ -31,9 +39,6 @@
   &__btn:hover {
     cursor: pointer;
     background: $light-gray-color;
-  }
-
-  @include e("chk-item") {
   }
 
   @include e("item") {
