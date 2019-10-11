@@ -45,6 +45,16 @@ function TodoBodyWidget() {
   const [todoLists, setTodoLists] = useState(todoListData)
   const [todoListsTemp, setTodoListsTemp] = useState(todoListData)
   const [count, setCount] = useState(0)
+  const [inpTodoItem, setInpTodoItem] = useState('')
+
+  const handleAddTodoItemSubmit = (e) => {
+    e.preventDefault()
+    const id = (new Date()).getTime()
+    const content = inpTodoItem
+    const isDone = false
+    setTodoLists([{id, content, isDone}, ...todoLists])
+    setInpTodoItem('')
+  }
 
   function todoItemClick(id) {
     for (let i = 0; i < todoLists.length; i++) {
@@ -64,9 +74,14 @@ function TodoBodyWidget() {
     if (type === 'completed') setTodoLists(list.filter(item => item.isDone === true))
     setTodoListsTemp(list)
   }
+
   return (
     <div className='todo'>
-      <p className='todo__header'>What needs to be done?</p>
+      <form className='todo__form-add' onSubmit={handleAddTodoItemSubmit}>
+        <input className='todo__ipTodoItem' type='input' value={inpTodoItem} placeholder='What needs to be done?' onChange={e=>setInpTodoItem(e.target.value)} />
+        <input className="todo__ipSubmit" type='submit' value='Add' />
+      </form>
+      
       <Row>
         <Col>2 items left</Col>
         <Col>
@@ -81,6 +96,7 @@ function TodoBodyWidget() {
             <ListGroup.Item className='todo__item' key={todo.id}>
               <input type="checkbox" checked={todo.isDone} onChange={() => { todoItemClick(todo.id) }} className='todo__chk-item' id={`todo-item-${todo.id}`} />
               <label className={todo.isDone ? 'todo-item--done' : null} for={`todo-item-${todo.id}`}>{todo.content}</label>
+              {todo.isDone? <i className="fas fa-times todo__item-remove"></i> : null}
             </ListGroup.Item>
           ))
         }

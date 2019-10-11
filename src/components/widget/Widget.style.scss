@@ -25,6 +25,29 @@
 }
 
 @include b("todo") {
+  @include e('ipTodoItem') {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px $primary-color;
+  }
+
+  @include e('item-remove') {
+    float: right;
+    line-height: 30px;
+    color: brown;
+  }
+  &__item-remove:hover {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  @include e('ipSubmit') {
+    background: white;
+    padding: 3px;
+    border: 1px solid $gray-color;
+    border-radius: 3px;
+    margin: 2px;
+  }
   @include e("btn") {
     padding: 3px;
     border: 1px solid $gray-color;
@@ -32,11 +55,20 @@
     margin: 2px;
   }
 
+  @include e("form-add") {
+    margin-bottom: 10px;
+  }
+
   @include e("list") {
     margin-top: 7px;
   }
 
   &__btn:hover {
+    cursor: pointer;
+    background: $light-gray-color;
+  }
+
+  &__ipSubmit:hover {
     cursor: pointer;
     background: $light-gray-color;
   }
