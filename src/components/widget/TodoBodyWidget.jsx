@@ -53,6 +53,7 @@ function TodoBodyWidget() {
     const content = inpTodoItem
     const isDone = false
     setTodoLists([{id, content, isDone}, ...todoLists])
+    setTodoListsTemp([{id, content, isDone}, ...todoListsTemp])
     setInpTodoItem('')
   }
 
@@ -75,6 +76,13 @@ function TodoBodyWidget() {
     setTodoListsTemp(list)
   }
 
+  function handleRemoveTodoItem(id) {
+    let removedItemsList = todoLists.filter(item => item.id !== id)
+    let removedItemsListTemp = todoListsTemp.filter(item => item.id !== id)
+    setTodoLists(removedItemsList)
+    setTodoListsTemp(removedItemsListTemp)
+  }
+
   return (
     <div className='todo'>
       <form className='todo__form-add' onSubmit={handleAddTodoItemSubmit}>
@@ -95,8 +103,8 @@ function TodoBodyWidget() {
           todoLists.map(todo => (
             <ListGroup.Item className='todo__item' key={todo.id}>
               <input type="checkbox" checked={todo.isDone} onChange={() => { todoItemClick(todo.id) }} className='todo__chk-item' id={`todo-item-${todo.id}`} />
-              <label className={todo.isDone ? 'todo-item--done' : null} for={`todo-item-${todo.id}`}>{todo.content}</label>
-              {todo.isDone? <i className="fas fa-times todo__item-remove"></i> : null}
+              <label className={todo.isDone ? 'todo-item--done' : null} htmlFor={`todo-item-${todo.id}`}>{todo.content}</label>
+              {todo.isDone? <i className="fas fa-times todo__item-remove" onClick={()=>{handleRemoveTodoItem(todo.id)}}></i> : null}
             </ListGroup.Item>
           ))
         }
