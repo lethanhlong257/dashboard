@@ -10,6 +10,9 @@ import ExpandingWidgetModal from '../../components/ExpandingWidgetModal/Expandin
 import TextWidget from '../../components/TextWidget/TextWidget'
 import {CONSTANT} from '../../constants/globalConstant'
 import PropType from 'prop-types'
+import Widget from "../../components/widget/Widget"
+import contacts from '../../data/contacts.json'
+import textContent from '../../data/textContent'
 
 class Dashboard extends Component {
   static propType = {
@@ -35,7 +38,11 @@ class Dashboard extends Component {
         </div>
 
         <ExpandingWidgetModal>
-          {widgetType === CONSTANT.WIDGET_TYPE_TEXT ? <TextWidget widgetTitile='Widget Type' /> : null}
+          {widgetType === CONSTANT.WIDGET_TYPE_TEXT ? <Widget content={textContent.content} widgetTitle='Text Widget' widgetType={CONSTANT.WIDGET_TYPE_TEXT} /> : null}
+          {widgetType === CONSTANT.WIDGET_TODO_LIST ? <Widget widgetTitle='Todo List Widget' widgetType={CONSTANT.WIDGET_TODO_LIST} /> : null}
+          {widgetType === CONSTANT.WIDGET_TYPE_DATATABLE ? <Widget data={contacts} type={CONSTANT.WIDGET_TYPE_DATATABLE} widgetTitle='Datatable Widget' widgetType={CONSTANT.WIDGET_TYPE_DATATABLE} /> : null}
+          {widgetType === CONSTANT.WIDGET_SIMPLE_CHART ? <Widget data={contacts} widgetTitle='Simple Chart Widget' widgetType={CONSTANT.WIDGET_SIMPLE_CHART} /> : null}
+          
         </ExpandingWidgetModal>
       </div>
     );

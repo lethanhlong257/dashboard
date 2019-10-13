@@ -41,15 +41,27 @@ const DragableItem = ({ id, widgetType, moveCard, findCard }) => {
         />
       break
     case CONSTANT.WIDGET_TODO_LIST:
-        widget =
-          <Widget
-            data={''} widgetTitle='Todo List Widget' widgetType={CONSTANT.WIDGET_TODO_LIST}
-          />
-        break
+      widget =
+        <Widget
+          data={''} widgetTitle='Todo List Widget' widgetType={CONSTANT.WIDGET_TODO_LIST}
+        />
+      break
+    case CONSTANT.WIDGET_SIMPLE_CHART:
+      widget =
+        <Widget
+          data={contacts} widgetTitle='Simple Chart Widget' widgetType={CONSTANT.WIDGET_SIMPLE_CHART}
+        />
+      break
+    case CONSTANT.WIDGET_ADD:
+      widget =
+        <Widget
+          widgetTitle='Add Widget' widgetType={CONSTANT.WIDGET_ADD}
+        />
+      break
     default:
       widget =
         <Widget
-          data={contacts} widgetTitle='Datatable Widget' widgetType={CONSTANT.WIDGET_TYPE_DATATABLE}
+        widgetTitle='Add Widget' widgetType={CONSTANT.WIDGET_ADD}
         />
       break
   }

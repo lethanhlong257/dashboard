@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Form } from 'react-bootstrap'
 import DataEditModeWidget from './DataEditModeWidget'
+import { CONSTANT } from '../../constants/globalConstant'
+import SimpleChartEditModeWidget from './SimpleChartEditModeWidget'
 
-function EditModeWidget({ data }) {
+function WidgetEditMode({ data, type }) {
   return (
     <div className="text-widget-edit-mode">
       <Form>
@@ -21,16 +23,20 @@ function EditModeWidget({ data }) {
         </Form.Group>
 
         <hr className="bar" />
-        <DataEditModeWidget data={data} />
-        
+        {type === CONSTANT.WIDGET_TYPE_DATATABLE ? <DataEditModeWidget data={data} /> : null}
+        {type === CONSTANT.WIDGET_SIMPLE_CHART ? <SimpleChartEditModeWidget data={data} /> : null}
+
+
       </Form>
     </div>
   )
 }
 
-EditModeWidget.propTypes = {
-  data: PropTypes.array.isRequired
+WidgetEditMode.propTypes = {
+  data: PropTypes.array.isRequired,
+  type: PropTypes.string,
 }
 
-export default EditModeWidget
+
+export default WidgetEditMode
 

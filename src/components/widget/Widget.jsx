@@ -7,8 +7,10 @@ import { HeaderWidgetIcon } from '../../data/headerWidget'
 import { CONSTANT } from '../../constants/globalConstant'
 import DatatableBodyContent from '../DatatableWidget/DatatableBodyContent'
 import TextWidgetEditMode from '../TextWidget/TextWidgetEditMode'
-import EditModeWidget from './EditModeWidget'
+import WidgetEditMode from './WidgetEditMode'
 import TodoBodyWidget from './TodoBodyWidget'
+import SimpleChartWidget from './SimpleChartWidget'
+import AddWidget from './AddWidget'
 
 function Widget({ widgetTitle, widgetType, data }) {
   const isEditMode = useSelector(state => state.dashboardBarReducer.isEditMode);
@@ -16,7 +18,7 @@ function Widget({ widgetTitle, widgetType, data }) {
   switch (widgetType) {
     case CONSTANT.WIDGET_TYPE_DATATABLE:
       widget = isEditMode ?
-        <EditModeWidget data={data} /> :
+        <WidgetEditMode data={data} type={CONSTANT.WIDGET_TYPE_DATATABLE} /> :
         <DatatableBodyContent contact={data} />
       break;
     case CONSTANT.WIDGET_TYPE_TEXT:
@@ -31,7 +33,23 @@ function Widget({ widgetTitle, widgetType, data }) {
           <TodoBodyWidget /> :
           <TodoBodyWidget />
       break;
+    case CONSTANT.WIDGET_SIMPLE_CHART:
+      widget =
+        isEditMode ?
+          <SimpleChartWidget data={data} /> :
+          <SimpleChartWidget data={data} />
+      break;
+    case CONSTANT.WIDGET_ADD:
+      widget =
+        isEditMode ?
+          <AddWidget /> :
+          <AddWidget />
+      break;
     default:
+      widget =
+        isEditMode ?
+          <AddWidget /> :
+          <AddWidget />
       break;
   }
   return (

@@ -19,7 +19,6 @@ function DataEditModeWidget({ data }) {
     setRemainningContactPropertyState(remainningContactProperty)
     dispatch({type: CONSTANT.ADD_CONTACT_PROPERTY, payload: {remainningContactProperty2, usingContactProperty2}})
   }
-  console.log(usingContactPropertyState)
   return (
     <div className='data-edit-mode'>
       <Form.Group controlId="formData">

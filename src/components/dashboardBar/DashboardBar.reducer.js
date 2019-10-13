@@ -1,9 +1,15 @@
 import {HANDLE_EDIT_MODE, HANDLE_VIEW_MODE} from 'constants/dashboardBarConstant'
 
+let isEditMode = false
+
+if (window.location.href.indexOf('#edit-mode') !== -1) {
+  isEditMode = true
+}
+
 const initialState = {
   username: 'longle',
   name: 'LongLe',
-  isEditMode: false
+  isEditMode
 }
 
 const EDIT_MODE = true;

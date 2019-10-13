@@ -16,7 +16,10 @@ let widgets = [
     id: 3, widgetType: CONSTANT.WIDGET_TODO_LIST
   },
   {
-    id: 4, widgetType: CONSTANT.WIDGET_TYPE_TEXT
+    id: 4, widgetType: CONSTANT.WIDGET_SIMPLE_CHART
+  },
+  {
+    id: 5, widgetType: CONSTANT.WIDGET_ADD
   }
 ]
 
