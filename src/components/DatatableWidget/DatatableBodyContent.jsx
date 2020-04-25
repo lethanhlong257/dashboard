@@ -15,12 +15,17 @@ function DatatableBodyContent({ contact }) {
   const handlePaging = (selectedIndex) => {
     startIndex = (contactPerPage * selectedIndex - (contactPerPage-1))
     endIndex = startIndex + (contactPerPage-1)
-    setCurrentIndex(startIndex)
+    setCurrentIndex(selectedIndex)
     setCurrentContactPerpage(paging(startIndex, endIndex, contact))
   }
   let paginationItems = [];
   for (let i = 1; i <= numOfPage; i++) {
-    paginationItems.push(<Pagination.Item onClick={() => { handlePaging(i) }} key={i}>{i}</Pagination.Item>)
+    paginationItems.push(
+      <Pagination.Item 
+        className={currentIndex === i ? 'active' : null}
+        onClick={() => { handlePaging(i) }} key={i}>{i}
+      </Pagination.Item>
+      )
   }
   return (
     <div className='datatable-body-content'>

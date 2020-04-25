@@ -1,47 +1,12 @@
 import React, { useState } from 'react'
 import { Row, Col, ListGroup } from 'react-bootstrap'
+import {useSelector} from 'react-redux'
 
 import './Widget.style.scss'
 
-const todoListData = [
-  {
-    id: 1,
-    content: 'Lam cai nay',
-    isDone: true,
-  },
-  {
-    id: 2,
-    content: 'Choi cai kia',
-    isDone: false,
-  },
-  {
-    id: 3,
-    content: 'Do notthing',
-    isDone: true,
-  },
-  {
-    id: 4,
-    content: 'Just test for fun',
-    isDone: true,
-  },
-  {
-    id: 5,
-    content: 'The free job, I will do when free',
-    isDone: false,
-  },
-  {
-    id: 6,
-    content: 'what the hell is that',
-    isDone: false,
-  },
-  {
-    id: 7,
-    content: 'haha hihi',
-    isDone: true,
-  }
-]
 
 function TodoBodyWidget() {
+  let todoListData = useSelector(state => state.widget.todoListData)
   const [todoLists, setTodoLists] = useState(todoListData)
   const [todoListsTemp, setTodoListsTemp] = useState(todoListData)
   const [count, setCount] = useState(0)

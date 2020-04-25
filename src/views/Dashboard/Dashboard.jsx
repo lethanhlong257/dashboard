@@ -7,7 +7,6 @@ import { DndProvider } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import DragableContainer from '../../components/dragableContainer/DragableContainer'
 import ExpandingWidgetModal from '../../components/ExpandingWidgetModal/ExpandingWidgetModal'
-import TextWidget from '../../components/TextWidget/TextWidget'
 import {CONSTANT} from '../../constants/globalConstant'
 import PropType from 'prop-types'
 import Widget from "../../components/widget/Widget"
